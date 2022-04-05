@@ -2,6 +2,7 @@ const prompt = require("prompt-sync")();
 const colors = require("colors");
 console.clear();
 
+// Função para pressionar enter e mudar de "cenário"
 const pressEnter = () => {
   console.log();
   prompt(`pressione ENTER para continuar`);
@@ -9,7 +10,9 @@ const pressEnter = () => {
   console.log();
 };
 
+// DO ... WHILE para a parte do ciclo rodar dentro do jogo, vão rodar 6 dias e só vai ao sétimo dependendo do OVERALL E RESPEITO
 do {
+  // Método
   var personagem = {
     nome: "Alfredo",
     idade: 20,
@@ -17,42 +20,43 @@ do {
     respeito: 25,
     time: "Flamengo",
 
+    // Função para diminuir overall
     menosOverall: function (baixa) {
-      console.log(`Você perdeu ${baixa} de overall! ` );
+      console.log(`Você perdeu ${baixa} de overall! `);
       this.overall -= baixa;
       return this.overall;
     },
-
+    // Função para adicionar overall
     maisOverall: function (aumento) {
       console.log(`Você ganhou ${aumento} de overall! `);
       this.overall += aumento;
       return this.overall;
     },
-
+    // Função para diminuir respeito
     menosRespeito: function (baixa) {
       console.log(`Você perdeu ${baixa} de respeito! `);
       this.respeito -= baixa;
       return this.respeito;
     },
-
+    // Função para adicionar respeito
     maisRespeito: function (aumento) {
       console.log(`Você ganhou ${aumento} de respeito! `);
       this.respeito += aumento;
       return this.respeito;
     },
-
+    // Função para adicionar tempo
     maisTempo: function (tempo) {
       console.log(`Já são ${tempo} horas,`);
       this.tempo += tempo;
       return tempo;
     },
-
+    // Função para diminuir tempo
     menosTempo: function (tempoMenos) {
       console.log(`Já são ${tempoMenos} horas,`);
       this.tempo -= tempoMenos;
       return tempoMenos;
     },
-
+    // Função para adicionar dias
     passagemDia: function (dia) {
       console.log(`do dia ${dia}.`);
       this.tempo += dia;
@@ -60,6 +64,7 @@ do {
     },
   };
 
+  // Dias do meu ciclo
   var dias = [
     "Segunda",
     "Terça",
@@ -70,7 +75,9 @@ do {
     "Domingo",
   ];
 
+  // For para rodar os dias, que são meus ciclos.
   for (var i of dias) {
+    // Primeiro ciclo!
     Segunda: console.log(
       `Olá, bem vindo ao Modo Carreira de ${personagem.nome}, ${personagem.idade} anos, jogador do ${personagem.time}! Você terá caminhos na qual poderá chegar ao Overall ideal para ser convocado para a seleção Brasileira.`
     );
@@ -88,7 +95,7 @@ do {
     pressEnter();
 
     let dia0 = dias[0];
-    console.log(`=======${dia0}-Feira=======` .yellow);
+    console.log(`=======${dia0}-Feira=======`.yellow);
     pressEnter();
     personagem.maisTempo(1);
     personagem.passagemDia(1);
@@ -217,7 +224,9 @@ do {
 
           console.log();
         }
-        console.log(`OK! A convocatória é amanhã! Vamos ver o que acontece. `.yellow);
+        console.log(
+          `OK! A convocatória é amanhã! Vamos ver o que acontece. `.yellow
+        );
       } else if (treino1 == 3) {
         console.log();
 
@@ -279,7 +288,9 @@ do {
         } else {
           console.log(`Digite uma opção válida! `.yellow);
         }
-        console.log(`Coletiva encerrada! Vamos aguardar a convocatória! `.yellow);
+        console.log(
+          `Coletiva encerrada! Vamos aguardar a convocatória! `.yellow
+        );
       } else {
         console.log(`Digite uma opção válida! `.yellow);
       }
@@ -353,7 +364,8 @@ do {
         console.log(
           `Você aproveita suas oportunidades! Agora seu overall é ${Number(
             personagem.overall
-          )} e seu respeito com treinador é ${Number(personagem.respeito)}`.yellow
+          )} e seu respeito com treinador é ${Number(personagem.respeito)}`
+            .yellow
         );
 
         console.log();
@@ -367,7 +379,7 @@ do {
   }
 
   pressEnter();
-
+  // Segundo ciclo
   terça: console.log();
   let dia1 = dias[1];
   console.log(`=======${dia1}-feira=======`.yellow);
@@ -451,7 +463,7 @@ do {
   }
 
   pressEnter();
-
+  // Terceiro ciclo
   quarta: console.log();
   let dia2 = dias[2];
   console.log(`=======${dia2}-feira=======`.yellow);
@@ -509,7 +521,8 @@ do {
       console.log(`Agora você tem ${Number(personagem.overall)}`.yellow);
       console.log(`Agora você tem ${Number(personagem.respeito)}`.yellow);
       console.log(
-        `Treinador ficou puto contigo. Por isso teve uma queda no seu respeito e overall. `.yellow
+        `Treinador ficou puto contigo. Por isso teve uma queda no seu respeito e overall. `
+          .yellow
       );
     }
   } else if (treino3 == 2) {
@@ -540,7 +553,8 @@ do {
       console.log(`Agora você tem ${Number(personagem.overall)}`.yellow);
       console.log(`Agora você tem ${Number(personagem.respeito)}`.yellow);
       console.log(
-        `Parabéns Alfredo, o treinador ficou muito feliz com sua atidude. Seu overall e respeito cresceram. `.yellow
+        `Parabéns Alfredo, o treinador ficou muito feliz com sua atidude. Seu overall e respeito cresceram. `
+          .yellow
       );
     } else if (cabeceio == 2) {
       console.log();
@@ -552,13 +566,14 @@ do {
       console.log(`Agora você tem ${Number(personagem.overall)}`.yellow);
       console.log(`Agora você tem ${Number(personagem.respeito)}`.yellow);
       console.log(
-        `Treinador ficou puto contigo. Por isso teve uma queda no seu respeito e overall. `.yellow
+        `Treinador ficou puto contigo. Por isso teve uma queda no seu respeito e overall. `
+          .yellow
       );
     }
   } else {
     console.log(`Digite uma opção válida! `.yellow);
   }
-
+  // Quarto ciclo
   quinta: console.log();
   let dia3 = dias[3];
   console.log(`=======${dia3}-feira=======`.yellow);
@@ -586,7 +601,8 @@ do {
     console.log(`Agora você tem ${Number(personagem.overall)}`.yellow);
     console.log(`Agora você tem ${Number(personagem.respeito)}`.yellow);
     console.log(
-      `Alfredo, treinador soube que na folga você procurou a fazer uma coisa mais tranquila, fazer as compras de casa. Ele sempre está de olho em você, pois é um cara problemático. Por isso você ganhou respeito com ele.  `.yellow
+      `Alfredo, treinador soube que na folga você procurou a fazer uma coisa mais tranquila, fazer as compras de casa. Ele sempre está de olho em você, pois é um cara problemático. Por isso você ganhou respeito com ele.  `
+        .yellow
     );
     console.log();
 
@@ -608,7 +624,8 @@ do {
       console.log(`Agora você tem ${Number(personagem.respeito)}`.yellow);
       console.log();
       console.log(
-        `Treinador te deu uma moral nos seus atributos... Ele viu que tá focado!  `.yellow
+        `Treinador te deu uma moral nos seus atributos... Ele viu que tá focado!  `
+          .yellow
       );
       console.log();
     } else if (compras == 2) {
@@ -619,7 +636,8 @@ do {
       console.log(`Agora você tem ${Number(personagem.overall)}`.yellow);
       console.log(`Agora você tem ${Number(personagem.respeito)}`.yellow);
       console.log(
-        `Aí você vacilou muito cara, porque tu num ficou calado? Ratiou!  `.yellow
+        `Aí você vacilou muito cara, porque tu num ficou calado? Ratiou!  `
+          .yellow
       );
     }
   } else if (folga == 2) {
@@ -630,7 +648,8 @@ do {
     console.log(`Agora você tem ${Number(personagem.overall)}`.yellow);
     console.log(`Agora você tem ${Number(personagem.respeito)}`.yellow);
     console.log(
-      `Treinador ficou sabendo, recebeu fotos no celular indicando que você estava numa festa... Com isso seu respeito caiu e overall também.  `.yellow
+      `Treinador ficou sabendo, recebeu fotos no celular indicando que você estava numa festa... Com isso seu respeito caiu e overall também.  `
+        .yellow
     );
     let festa = +prompt(
       `Cara, você bebeu muito? (1 - Não, me contive / 2 - Amassei muito.)`
@@ -649,12 +668,13 @@ do {
       console.log(`Agora você tem ${Number(personagem.overall)}`.yellow);
       console.log(`Agora você tem ${Number(personagem.respeito)}`.yellow);
       console.log(
-        `Parabéns, mesmo na folga você tem se contido! Parabéns mesmo. Mais Overall e respeito. `.yellow
+        `Parabéns, mesmo na folga você tem se contido! Parabéns mesmo. Mais Overall e respeito. `
+          .yellow
       );
     }
   }
   pressEnter();
-
+  // Quinto ciclo
   sexta: console.log();
   let dia4 = dias[4];
   console.log(`=======${dia4}-feira=======`.yellow);
@@ -717,7 +737,8 @@ do {
       console.log(`Agora você tem ${Number(personagem.overall)}`.yellow);
       console.log(`Agora você tem ${Number(personagem.respeito)}`.yellow);
       console.log(
-        `Alfredo foi pra cima do defensor, passou liso. Saiu de cara para o gol e fez! Foi uma linda jogada que coloca Alfredo no olho do treinador da seleção que vê o jogo! `.yellow
+        `Alfredo foi pra cima do defensor, passou liso. Saiu de cara para o gol e fez! Foi uma linda jogada que coloca Alfredo no olho do treinador da seleção que vê o jogo! `
+          .yellow
       );
     } else {
       console.log(`Digite uma opção válida! `.yellow);
@@ -734,7 +755,8 @@ do {
     console.log(
       `Alfredo claramente é um jogador solidário! ${Number(
         personagem.overall
-      )} é seu overall agora e de respeito: ${Number(personagem.respeito)}`.yellow
+      )} é seu overall agora e de respeito: ${Number(personagem.respeito)}`
+        .yellow
     );
 
     let recuperar = +prompt(
@@ -756,7 +778,8 @@ do {
       console.log(`Agora você tem ${Number(personagem.overall)}`.yellow);
       console.log(`Agora você tem ${Number(personagem.respeito)}`.yellow);
       console.log(
-        `Treinador não gostou do questionamento, mas mesmo assim, pela coragem você ganhou respeito! Foi para ${personagem.respeito}`.yellow
+        `Treinador não gostou do questionamento, mas mesmo assim, pela coragem você ganhou respeito! Foi para ${personagem.respeito}`
+          .yellow
       );
     } else if (recuperar == 2) {
       console.log();
@@ -766,7 +789,8 @@ do {
       console.log(`Agora você tem ${Number(personagem.overall)}`.yellow);
       console.log(`Agora você tem ${Number(personagem.respeito)}`.yellow);
       console.log(
-        `Alfredo aceita, mas vai muito mal! Ele não sabe jogar por aquele lado! Com isso seu overrll para ${personagem.overall}`.yellow
+        `Alfredo aceita, mas vai muito mal! Ele não sabe jogar por aquele lado! Com isso seu overrll para ${personagem.overall}`
+          .yellow
       );
 
       let reclamar = +prompt(
@@ -830,14 +854,15 @@ do {
     personagem.menosRespeito(2);
   }
   pressEnter();
-
+  // Sexto ciclo
   sábado: console.log();
   let dia5 = dias[5];
   console.log(`=======${dia5}=======`.yellow);
   pressEnter();
   console.log(
     "Hoje é dia de coletiva pós-jogo! Seu nome tá especulado na seleção... Talvez pinte algo! "
-    .yellow);
+      .yellow
+  );
   console.log();
   let sabado = +prompt(
     `Repórter - "Alfredo, você está sendo especulado na seleção... Como você encara isso? (1 - Eu sempre soube que ia ser chamado / 2 - Estou tratando com muita naturalizadade! )" `
@@ -857,7 +882,8 @@ do {
     console.log(`Agora você tem ${Number(personagem.overall)}`.yellow);
     console.log(`Agora você tem ${Number(personagem.respeito)}`.yellow);
     console.log(
-      `Você foi muito mal na resposta. Treinador da seleção Brasileiro está vendo e caiu um pouco seus atributos. `.yellow
+      `Você foi muito mal na resposta. Treinador da seleção Brasileiro está vendo e caiu um pouco seus atributos. `
+        .yellow
     );
     let reporter1 = +prompt(
       `Por essa resposta o ninguém esperava... O treinador pode o que de você? (1 - O meu melhor sempre / 2 - Pode esperar gol ) `
@@ -877,7 +903,8 @@ do {
       console.log(`Agora você tem ${Number(personagem.overall)}`.yellow);
       console.log(`Agora você tem ${Number(personagem.respeito)}`.yellow);
       console.log(
-        `Essa resposta foi mais amena, ganhou um pouquinho de atributos. `.yellow
+        `Essa resposta foi mais amena, ganhou um pouquinho de atributos. `
+          .yellow
       );
     } else if (reporter1 == 2) {
       console.log();
@@ -888,7 +915,8 @@ do {
       console.log(`Agora você tem ${Number(personagem.overall)}`.yellow);
       console.log(`Agora você tem ${Number(personagem.respeito)}`.yellow);
       console.log(
-        `Essa resposta foi muito boa. Passou confiança e limpou um pouco a imagem da pergunta anterior.  `.yellow
+        `Essa resposta foi muito boa. Passou confiança e limpou um pouco a imagem da pergunta anterior.  `
+          .yellow
       );
     }
   } else if (sabado == 2) {
@@ -906,6 +934,8 @@ do {
   pressEnter();
 } while (personagem.overall <= 75 && personagem.respeito <= 75);
 
+// Esse é meu sétimo ciclo, mas ele só entra aqui condicionado aos parametros do DO...WHILE de cima, ou seja, precisa atingir 75 de respeito e 75 de overall para entrar aqui.
+// Se isso não acontecer, o programa fica rodando até ele atingir e determinar quando ele foi convocado, que é seu grande objetivo.
 domingo: do
   while (personagem.overall >= 75 && personagem.respeito >= 75) {
     console.log();
@@ -915,7 +945,8 @@ domingo: do
     pressEnter();
     console.log();
     console.log(
-      `Convocação da seleção Brasilera! Alfredo foi convocado por seu desempenho! Houve até coletiva de imprensa. `.yellow
+      `Convocação da seleção Brasilera! Alfredo foi convocado por seu desempenho! Houve até coletiva de imprensa. `
+        .yellow
     );
     console.log();
 
@@ -935,7 +966,8 @@ domingo: do
       personagem.passagemDia(7);
       personagem.maisRespeito(10);
       console.log(
-        `"Ah, cara! Estou muito feliz! Sempre sonhei por esse momento e não sabia que ia chegar tão cedo!"`.yellow
+        `"Ah, cara! Estou muito feliz! Sempre sonhei por esse momento e não sabia que ia chegar tão cedo!"`
+          .yellow
       );
       console.log(
         `Com essa resposta, seu respeito aumentou muito, Alfredo! ${Number(
@@ -948,7 +980,8 @@ domingo: do
       personagem.passagemDia(7);
       personagem.menosRespeito(5);
       console.log(
-        `"Sempre soube que esse dia ia chegar, um jogador como eu nunca pode ficar de fora da convocatória!" `.yellow
+        `"Sempre soube que esse dia ia chegar, um jogador como eu nunca pode ficar de fora da convocatória!" `
+          .yellow
       );
       console.log(
         `Com essa mala toda, seu nível de respeito baixou! ${Number(
@@ -961,9 +994,15 @@ domingo: do
     personagem.passagemDia(7);
     personagem.maisOverall();
     personagem.maisOverall();
-    console.log(`Alfredo conseguiu o objetivo e foi convocado! THE END! `.yellow);
-    console.log(`Nível de respeito ficou em ${Number(personagem.respeito)}`.yellow);
-    console.log(`Nível de overall ficou em ${Number(personagem.overall)}`.yellow);
+    console.log(
+      `Alfredo conseguiu o objetivo e foi convocado! THE END! `.yellow
+    );
+    console.log(
+      `Nível de respeito ficou em ${Number(personagem.respeito)}`.yellow
+    );
+    console.log(
+      `Nível de overall ficou em ${Number(personagem.overall)}`.yellow
+    );
     break;
   }
 while (true);
