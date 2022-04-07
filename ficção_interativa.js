@@ -10,59 +10,63 @@ const pressEnter = () => {
   console.log();
 };
 
+var personagem = {
+  nome: "Alfredo",
+  idade: 20,
+  overall: 25,
+  respeito: 25,
+  time: "Flamengo",
+
+  // Função para diminuir overall
+  menosOverall: function (baixa) {
+    console.log(`Você perdeu ${baixa} de overall! `);
+    this.overall -= baixa;
+    return this.overall;
+  },
+  // Função para adicionar overall
+  maisOverall: function (aumento) {
+    console.log(`Você ganhou ${aumento} de overall! `);
+    this.overall += aumento;
+    return this.overall;
+  },
+  // Função para diminuir respeito
+  menosRespeito: function (baixa) {
+    console.log(`Você perdeu ${baixa} de respeito! `);
+    this.respeito -= baixa;
+    return this.respeito;
+  },
+  // Função para adicionar respeito
+  maisRespeito: function (aumento) {
+    console.log(`Você ganhou ${aumento} de respeito! `);
+    this.respeito += aumento;
+    return this.respeito;
+  },
+  // Função para adicionar tempo
+  maisTempo: function (tempo) {
+    console.log(`Já são ${tempo} horas,`);
+    this.tempo += tempo;
+    return tempo;
+  },
+  // Função para diminuir tempo
+  menosTempo: function (tempoMenos) {
+    console.log(`Já são ${tempoMenos} horas,`);
+    this.tempo -= tempoMenos;
+    return tempoMenos;
+  },
+  // Função para adicionar dias
+  passagemDia: function (dia) {
+    console.log(`do dia ${dia}.`);
+    this.tempo += dia;
+    return dia;
+  },
+
+}
+
 // DO ... WHILE para a parte do ciclo rodar dentro do jogo, vão rodar 6 dias e só vai ao sétimo dependendo do OVERALL E RESPEITO
 do {
   // Método
-  var personagem = {
-    nome: "Alfredo",
-    idade: 20,
-    overall: 25,
-    respeito: 25,
-    time: "Flamengo",
-
-    // Função para diminuir overall
-    menosOverall: function (baixa) {
-      console.log(`Você perdeu ${baixa} de overall! `);
-      this.overall -= baixa;
-      return this.overall;
-    },
-    // Função para adicionar overall
-    maisOverall: function (aumento) {
-      console.log(`Você ganhou ${aumento} de overall! `);
-      this.overall += aumento;
-      return this.overall;
-    },
-    // Função para diminuir respeito
-    menosRespeito: function (baixa) {
-      console.log(`Você perdeu ${baixa} de respeito! `);
-      this.respeito -= baixa;
-      return this.respeito;
-    },
-    // Função para adicionar respeito
-    maisRespeito: function (aumento) {
-      console.log(`Você ganhou ${aumento} de respeito! `);
-      this.respeito += aumento;
-      return this.respeito;
-    },
-    // Função para adicionar tempo
-    maisTempo: function (tempo) {
-      console.log(`Já são ${tempo} horas,`);
-      this.tempo += tempo;
-      return tempo;
-    },
-    // Função para diminuir tempo
-    menosTempo: function (tempoMenos) {
-      console.log(`Já são ${tempoMenos} horas,`);
-      this.tempo -= tempoMenos;
-      return tempoMenos;
-    },
-    // Função para adicionar dias
-    passagemDia: function (dia) {
-      console.log(`do dia ${dia}.`);
-      this.tempo += dia;
-      return dia;
-    },
-  };
+   personagem;
+  
 
   // Dias do meu ciclo
   var dias = [
