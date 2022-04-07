@@ -10,6 +10,7 @@ const pressEnter = () => {
   console.log();
 };
 
+// Método
 var personagem = {
   nome: "Alfredo",
   idade: 20,
@@ -64,7 +65,6 @@ var personagem = {
 
 // DO ... WHILE para a parte do ciclo rodar dentro do jogo, vão rodar 6 dias e só vai ao sétimo dependendo do OVERALL E RESPEITO
 do {
-  // Método
    personagem;
   
 
